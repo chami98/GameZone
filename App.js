@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font'
-import Home from './screens/home';
+import Home from './screens/Home';
 import About from './screens/About'
 import { useState } from 'react';
 import AppLoading from 'expo-app-loading';
