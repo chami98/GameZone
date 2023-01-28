@@ -4,6 +4,7 @@ import Home from './screens/Home';
 import About from './screens/About'
 import { useState } from 'react';
 import AppLoading from 'expo-app-loading';
+import Navigator from "./routes/homeStack"
 
 const getFonts = () => Font.loadAsync({
   'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
