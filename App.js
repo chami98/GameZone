@@ -4,7 +4,7 @@ import Home from './screens/Home';
 import About from './screens/About'
 import { useState } from 'react';
 import AppLoading from 'expo-app-loading';
-import Navigator from "./routes/homeStack"
+import Navigator from "./routes/drawer"
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import { View } from 'react-native-web';
 import { globalStyles } from './styles/global';
