@@ -4,6 +4,7 @@ import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import { MaterialIcons } from '.@expo/vector-icons';
 import { FlatList } from 'react-native-gesture-handler';
+import ReviewForm from './ReviewForm';
 
 
 
@@ -27,7 +28,7 @@ export default function Home({ navigation }) {
                         onPress={() => setModalOpen(false)}
                         style={{ ...styles.modalToggle, ...styles.modalClose }}
                     />
-                    <Text>Hello form the modal</Text>
+                    <ReviewForm />
                 </View>
             </Modal>
 
