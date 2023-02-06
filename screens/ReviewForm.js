@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { globalStyles } from '../styles/global';
 import * as yup from 'yup';
+import FlatButton from '../shared/Buton';
 
 const ReviewSchema = yup.object({
     title: yup.string().required.min(4),
@@ -62,9 +63,8 @@ export default function ReviewForm({ addReview }) {
                         <Text style={globalStyles.errorText}> {props.touched.rating && props.errors.rating}</Text>
 
 
-                        <Button
-                            title='Submit'
-                            color='maroon'
+                        <FlatButton
+                            text={submit}
                             onPress={props.handleSubmit}
                         />
                     </View>
