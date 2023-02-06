@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, TouchableOpacity, Modal } from 'react-native'
+import { StyleSheet, View, Text, Button, TouchableOpacity, Modal, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import { MaterialIcons } from '.@expo/vector-icons';
@@ -13,23 +13,42 @@ export default function Home({ navigation }) {
 
     const [modalOpen, setModalOpen] = useState(false)
 
+    const [reviews, setReviews] = useState([
+        { title: 'Zelda, Breadth of fresh air', rating: 5, body: 'lorem ipsum', key: '1' }
+        { title: 'Gotta , Breadth of fresh air', rating: 5, body: 'lorem ipsum', key: '2' }
+        { title: 'CAtch, Breadth of fresh air', rating: 5, body: 'lorem ipsum', key: '3' }
+        { title: 'going, Breadth of fresh air', rating: 5, body: 'lorem ipsum', key: '4' }
+    ])
+
     const pressHandler = () => {
         navigation.navigate('ReviewDetails');
+    }
+
+    const addReview = (review) => {
+        review.key = Math.random().toString();
+        setReviews((currentReviews) => {
+            return [review, ...currentReviews];
+        });
+
+        setModalOpen(false);
     }
 
     return (
         <View style={globalStyles.container}>
 
             <Modal visible={modalOpen} animationType='slide'>
-                <View style={styles.modalContent}>
-                    <MaterialIcons
-                        name='close'
-                        size={24}
-                        onPress={() => setModalOpen(false)}
-                        style={{ ...styles.modalToggle, ...styles.modalClose }}
-                    />
-                    <ReviewForm />
-                </View>
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                    <View style={styles.modalContent}>
+                        <MaterialIcons
+                            name='close'
+                            size={24}
+                            onPress={() => setModalOpen(false)}
+                            style={{ ...styles.modalToggle, ...styles.modalClose }}
+                        />
+                        <ReviewForm addReview={addReview} />
+                    </View>
+                </TouchableWithoutFeedback>
+
             </Modal>
 
             <MaterialIcons
