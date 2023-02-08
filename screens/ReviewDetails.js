@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
     rating: {
         flexDirection: 'row',
         justifyContent: 'center',
-        paddingTop: 16,
-        marginTop: 16,
-        borderTopWidth: 1,
+        paddingTop: 15,
+        marginTop: 15,
+        borderTopWidth: 2,
         borderTopColor: '#eee',
     }
 
